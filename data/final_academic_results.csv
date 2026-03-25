@@ -1,0 +1,5 @@
+Model,Best_AUC,Logic_Score(%)
+PureCF,0.5772,0.0
+DKT,0.8412,80.63
+SAKT,0.8133,79.8
+KG-SAKT,0.8052,79.56

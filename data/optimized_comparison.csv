@@ -1,0 +1,5 @@
+Model,Best_AUC
+PureCF,0.509
+DKT,0.841
+SAKT,0.8146
+KG-SAKT,0.8035

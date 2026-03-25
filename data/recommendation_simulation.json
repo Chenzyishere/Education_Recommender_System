@@ -1,0 +1,92 @@
+{
+  "学生A（基础薄弱）": {
+    "level": "中级",
+    "recent_accuracy": 0.6,
+    "recommendations": [
+      {
+        "skill_id": 3,
+        "skill_name": "Histogram as Table or Graph (直方图表与统计图)",
+        "mastery_prob": 0.6093,
+        "readiness": 1.0,
+        "score": 0.9829,
+        "reason": "处于最近发展区，预计学习收益较高。"
+      },
+      {
+        "skill_id": 38,
+        "skill_name": "Addition Whole Numbers (整数加法)",
+        "mastery_prob": 0.6102,
+        "readiness": 1.0,
+        "score": 0.9813,
+        "reason": "前置覆盖高（均值0.64），当前掌握0.61，适合作为下一步学习。"
+      },
+      {
+        "skill_id": 118,
+        "skill_name": "Interpreting Coordinate Graphs (坐标图解读)",
+        "mastery_prob": 0.6175,
+        "readiness": 1.0,
+        "score": 0.9678,
+        "reason": "前置覆盖高（均值0.62），当前掌握0.62，适合作为下一步学习。"
+      }
+    ]
+  },
+  "学生B（稳步进阶）": {
+    "level": "高级",
+    "recent_accuracy": 0.8,
+    "recommendations": [
+      {
+        "skill_id": 119,
+        "skill_name": "Skill 119 (技能119-待定)",
+        "mastery_prob": 0.6042,
+        "readiness": 1.0,
+        "score": 0.9923,
+        "reason": "前置覆盖高（均值0.88），当前掌握0.60，适合作为下一步学习。"
+      },
+      {
+        "skill_id": 34,
+        "skill_name": "Ordering Fractions (分数排序)",
+        "mastery_prob": 0.5762,
+        "readiness": 1.0,
+        "score": 0.9564,
+        "reason": "前置覆盖高（均值0.51），当前掌握0.58，适合作为下一步学习。"
+      },
+      {
+        "skill_id": 87,
+        "skill_name": "Area Irregular Figure (不规则图形面积)",
+        "mastery_prob": 0.6261,
+        "readiness": 1.0,
+        "score": 0.9521,
+        "reason": "前置覆盖高（均值0.63），当前掌握0.63，适合作为下一步学习。"
+      }
+    ]
+  },
+  "学生C（拔尖挑战）": {
+    "level": "高级",
+    "recent_accuracy": 0.8,
+    "recommendations": [
+      {
+        "skill_id": 58,
+        "skill_name": "Order of Operations (运算法则)",
+        "mastery_prob": 0.6181,
+        "readiness": 1.0,
+        "score": 0.9669,
+        "reason": "前置覆盖高（均值0.66），当前掌握0.62，适合作为下一步学习。"
+      },
+      {
+        "skill_id": 1,
+        "skill_name": "Algebraic Solving (代数求解)",
+        "mastery_prob": 0.5438,
+        "readiness": 1.0,
+        "score": 0.897,
+        "reason": "处于最近发展区，预计学习收益较高。"
+      },
+      {
+        "skill_id": 111,
+        "skill_name": "Distributive Property (乘法分配律)",
+        "mastery_prob": 0.6665,
+        "readiness": 1.0,
+        "score": 0.8781,
+        "reason": "前置覆盖高（均值0.88），当前掌握0.67，适合作为下一步学习。"
+      }
+    ]
+  }
+}
