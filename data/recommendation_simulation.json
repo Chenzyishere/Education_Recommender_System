@@ -5,7 +5,7 @@
     "recommendations": [
       {
         "skill_id": 3,
-        "skill_name": "Histogram as Table or Graph (????????)",
+        "skill_name": "Histogram as Table or Graph (直方图表与统计图)",
         "mastery_prob": 0.6093,
         "readiness": 1.0,
         "score": 0.9829,
@@ -13,7 +13,7 @@
       },
       {
         "skill_id": 38,
-        "skill_name": "Addition Whole Numbers (????)",
+        "skill_name": "Addition Whole Numbers (整数加法)",
         "mastery_prob": 0.6102,
         "readiness": 1.0,
         "score": 0.9813,
@@ -21,7 +21,7 @@
       },
       {
         "skill_id": 118,
-        "skill_name": "Interpreting Coordinate Graphs (??????)",
+        "skill_name": "Interpreting Coordinate Graphs (坐标图解读)",
         "mastery_prob": 0.6175,
         "readiness": 1.0,
         "score": 0.9678,
@@ -35,7 +35,7 @@
     "recommendations": [
       {
         "skill_id": 119,
-        "skill_name": "Skill 119 (??119??????)",
+        "skill_name": "Skill 119 (技能119-待定)",
         "mastery_prob": 0.6042,
         "readiness": 1.0,
         "score": 0.9923,
@@ -43,7 +43,7 @@
       },
       {
         "skill_id": 34,
-        "skill_name": "Ordering Fractions (??????)",
+        "skill_name": "Ordering Fractions (分数排序)",
         "mastery_prob": 0.5762,
         "readiness": 1.0,
         "score": 0.9564,
@@ -51,7 +51,7 @@
       },
       {
         "skill_id": 87,
-        "skill_name": "Area Irregular Figure (???????)",
+        "skill_name": "Area Irregular Figure (不规则图形面积)",
         "mastery_prob": 0.6261,
         "readiness": 1.0,
         "score": 0.9521,
@@ -81,7 +81,7 @@
       },
       {
         "skill_id": 111,
-        "skill_name": "Distributive Property (???)",
+        "skill_name": "Distributive Property (乘法分配律)",
         "mastery_prob": 0.6665,
         "readiness": 1.0,
         "score": 0.8781,
