@@ -1,0 +1,821 @@
+[
+  {
+    "KP_source": "Algebraic Solving (代数求解)",
+    "relation": "requires",
+    "KP_target": "Algebraic Simplification (代数式化简)",
+    "KP_source_id": 1,
+    "KP_target_id": 70
+  },
+  {
+    "KP_source": "Unit Rate (单位速率)",
+    "relation": "requires",
+    "KP_target": "Conversion of Fraction Decimals Percents (分数/小数/百分数互化)",
+    "KP_source_id": 2,
+    "KP_target_id": 31
+  },
+  {
+    "KP_source": "Number Line (数轴)",
+    "relation": "requires",
+    "KP_target": "Histogram as Table or Graph (直方图表与统计图)",
+    "KP_source_id": 4,
+    "KP_target_id": 3
+  },
+  {
+    "KP_source": "Stem and Leaf Plot (茎叶图)",
+    "relation": "requires",
+    "KP_target": "Histogram as Table or Graph (直方图表与统计图)",
+    "KP_source_id": 6,
+    "KP_target_id": 3
+  },
+  {
+    "KP_source": "Table (统计表)",
+    "relation": "requires",
+    "KP_target": "Mean (平均数)",
+    "KP_source_id": 7,
+    "KP_target_id": 9
+  },
+  {
+    "KP_source": "Area of a Triangle (三角形面积)",
+    "relation": "requires",
+    "KP_target": "Angles - Interior (内角)",
+    "KP_source_id": 8,
+    "KP_target_id": 5
+  },
+  {
+    "KP_source": "Mean (平均数)",
+    "relation": "requires",
+    "KP_target": "Histograms (直方图)",
+    "KP_source_id": 9,
+    "KP_target_id": 82
+  },
+  {
+    "KP_source": "Area of a Circle (圆面积)",
+    "relation": "requires",
+    "KP_target": "Area of a Triangle (三角形面积)",
+    "KP_source_id": 10,
+    "KP_target_id": 8
+  },
+  {
+    "KP_source": "Box and Whisker Plot (箱线图)",
+    "relation": "requires",
+    "KP_target": "Mean (平均数)",
+    "KP_source_id": 11,
+    "KP_target_id": 9
+  },
+  {
+    "KP_source": "Fractions Multiplication (分数乘法)",
+    "relation": "requires",
+    "KP_target": "Fractions Addition (分数加减)",
+    "KP_source_id": 13,
+    "KP_target_id": 12
+  },
+  {
+    "KP_source": "Fractions Division (分数除法)",
+    "relation": "requires",
+    "KP_target": "Fractions Multiplication (分数乘法)",
+    "KP_source_id": 14,
+    "KP_target_id": 13
+  },
+  {
+    "KP_source": "Ordering Fractions (分数排序)",
+    "relation": "requires",
+    "KP_target": "Fractions Division (分数除法)",
+    "KP_source_id": 15,
+    "KP_target_id": 14
+  },
+  {
+    "KP_source": "Least Common Multiple (最小公倍数)",
+    "relation": "requires",
+    "KP_target": "Fractions Addition (分数加减)",
+    "KP_source_id": 16,
+    "KP_target_id": 12
+  },
+  {
+    "KP_source": "Interior Angles Triangle (三角形内角)",
+    "relation": "requires",
+    "KP_target": "Pythagorean Theorem (勾股定理/皮氏定理)",
+    "KP_source_id": 17,
+    "KP_target_id": 21
+  },
+  {
+    "KP_source": "Fractions Greater than One (假分数)",
+    "relation": "requires",
+    "KP_target": "Fractions Division (分数除法)",
+    "KP_source_id": 18,
+    "KP_target_id": 14
+  },
+  {
+    "KP_source": "Complementary and Supplementary Angles (余角与补角)",
+    "relation": "requires",
+    "KP_target": "Pythagorean Theorem (勾股定理/皮氏定理)",
+    "KP_source_id": 19,
+    "KP_target_id": 21
+  },
+  {
+    "KP_source": "Angles on Parallel Lines Cut by a Transversal (平行线截角性质)",
+    "relation": "requires",
+    "KP_target": "Pythagorean Theorem (勾股定理/皮氏定理)",
+    "KP_source_id": 20,
+    "KP_target_id": 21
+  },
+  {
+    "KP_source": "Pythagorean Theorem (勾股定理/皮氏定理)",
+    "relation": "requires",
+    "KP_target": "Volume of a Rectangular Prism (长方体体积)",
+    "KP_source_id": 21,
+    "KP_target_id": 35
+  },
+  {
+    "KP_source": "Unit Conversion Within a System (同系单位换算)",
+    "relation": "requires",
+    "KP_target": "Nets of 3D Figures (几何体展开图)",
+    "KP_source_id": 23,
+    "KP_target_id": 22
+  },
+  {
+    "KP_source": "Multiplication and Division (乘除基础)",
+    "relation": "requires",
+    "KP_target": "Multiplication Whole Numbers (整数乘法)",
+    "KP_source_id": 24,
+    "KP_target_id": 44
+  },
+  {
+    "KP_source": "Skill 25 (技能25-待定)",
+    "relation": "requires",
+    "KP_target": "Nets of 3D Figures (几何体展开图)",
+    "KP_source_id": 25,
+    "KP_target_id": 22
+  },
+  {
+    "KP_source": "Area Circle (圆面积)",
+    "relation": "requires",
+    "KP_target": "Pythagorean Theorem (勾股定理/皮氏定理)",
+    "KP_source_id": 26,
+    "KP_target_id": 21
+  },
+  {
+    "KP_source": "Perimeter (多边形周长)",
+    "relation": "requires",
+    "KP_target": "Surface Area of a Cylinder (圆柱表面积)",
+    "KP_source_id": 27,
+    "KP_target_id": 32
+  },
+  {
+    "KP_source": "Pythagorean Theorem (勾股定理)",
+    "relation": "requires",
+    "KP_target": "Pythagorean Theorem (勾股定理/皮氏定理)",
+    "KP_source_id": 28,
+    "KP_target_id": 21
+  },
+  {
+    "KP_source": "Reading a Ruler or Scale (刻度尺读数)",
+    "relation": "requires",
+    "KP_target": "Nets of 3D Figures (几何体展开图)",
+    "KP_source_id": 29,
+    "KP_target_id": 22
+  },
+  {
+    "KP_source": "Calculations with Similar Figures (相似图形计算)",
+    "relation": "requires",
+    "KP_target": "Pythagorean Theorem (勾股定理/皮氏定理)",
+    "KP_source_id": 30,
+    "KP_target_id": 21
+  },
+  {
+    "KP_source": "Conversion of Fraction Decimals Percents (分数/小数/百分数互化)",
+    "relation": "requires",
+    "KP_target": "Proportion (比例)",
+    "KP_source_id": 31,
+    "KP_target_id": 50
+  },
+  {
+    "KP_source": "Surface Area of a Cylinder (圆柱表面积)",
+    "relation": "requires",
+    "KP_target": "Area of a Triangle (三角形面积)",
+    "KP_source_id": 32,
+    "KP_target_id": 8
+  },
+  {
+    "KP_source": "Surface Area (表面积基础)",
+    "relation": "requires",
+    "KP_target": "Surface Area of a Cylinder (圆柱表面积)",
+    "KP_source_id": 33,
+    "KP_target_id": 32
+  },
+  {
+    "KP_source": "Ordering Fractions (分数排序)",
+    "relation": "requires",
+    "KP_target": "Conversion of Fraction Decimals Percents (分数/小数/百分数互化)",
+    "KP_source_id": 34,
+    "KP_target_id": 31
+  },
+  {
+    "KP_source": "Volume of a Rectangular Prism (长方体体积)",
+    "relation": "requires",
+    "KP_target": "Surface Area of a Cylinder (圆柱表面积)",
+    "KP_source_id": 35,
+    "KP_target_id": 32
+  },
+  {
+    "KP_source": "Ordering Real Numbers (实数排序)",
+    "relation": "requires",
+    "KP_target": "Nets of 3D Figures (几何体展开图)",
+    "KP_source_id": 36,
+    "KP_target_id": 22
+  },
+  {
+    "KP_source": "Volume of a Triangular Prism (三棱柱体积)",
+    "relation": "requires",
+    "KP_target": "Volume of a Rectangular Prism (长方体体积)",
+    "KP_source_id": 37,
+    "KP_target_id": 35
+  },
+  {
+    "KP_source": "Division Fractions (分数除法)",
+    "relation": "requires",
+    "KP_target": "Conversion of Fraction Decimals Percents (分数/小数/百分数互化)",
+    "KP_source_id": 39,
+    "KP_target_id": 31
+  },
+  {
+    "KP_source": "Estimation (估算)",
+    "relation": "requires",
+    "KP_target": "Addition Whole Numbers (整数加法)",
+    "KP_source_id": 40,
+    "KP_target_id": 38
+  },
+  {
+    "KP_source": "Fraction Of (求一个数的几分之几)",
+    "relation": "requires",
+    "KP_target": "Proportion (比例)",
+    "KP_source_id": 41,
+    "KP_target_id": 50
+  },
+  {
+    "KP_source": "Least Common Multiple (最小公倍数)",
+    "relation": "requires",
+    "KP_target": "Proportion (比例)",
+    "KP_source_id": 42,
+    "KP_target_id": 50
+  },
+  {
+    "KP_source": "Multiplication Fractions (分数乘法)",
+    "relation": "requires",
+    "KP_target": "Proportion (比例)",
+    "KP_source_id": 43,
+    "KP_target_id": 50
+  },
+  {
+    "KP_source": "Multiplication Whole Numbers (整数乘法)",
+    "relation": "requires",
+    "KP_target": "Subtraction Whole Numbers (整数减法)",
+    "KP_source_id": 44,
+    "KP_target_id": 46
+  },
+  {
+    "KP_source": "Linear Equations (线性方程)",
+    "relation": "requires",
+    "KP_target": "Algebraic Simplification (代数式化简)",
+    "KP_source_id": 45,
+    "KP_target_id": 70
+  },
+  {
+    "KP_source": "Subtraction Whole Numbers (整数减法)",
+    "relation": "requires",
+    "KP_target": "Addition Whole Numbers (整数加法)",
+    "KP_source_id": 46,
+    "KP_target_id": 38
+  },
+  {
+    "KP_source": "Square Root (平方根)",
+    "relation": "requires",
+    "KP_target": "Nets of 3D Figures (几何体展开图)",
+    "KP_source_id": 47,
+    "KP_target_id": 22
+  },
+  {
+    "KP_source": "Inequalities (不等式)",
+    "relation": "requires",
+    "KP_target": "Linear Equations (线性方程)",
+    "KP_source_id": 48,
+    "KP_target_id": 45
+  },
+  {
+    "KP_source": "Finding Percents (百分比计算)",
+    "relation": "requires",
+    "KP_target": "Proportion (比例)",
+    "KP_source_id": 49,
+    "KP_target_id": 50
+  },
+  {
+    "KP_source": "Proportion (比例)",
+    "relation": "requires",
+    "KP_target": "Fractions Division (分数除法)",
+    "KP_source_id": 50,
+    "KP_target_id": 14
+  },
+  {
+    "KP_source": "Scientific Notation (科学计数法)",
+    "relation": "requires",
+    "KP_target": "Inequalities (不等式)",
+    "KP_source_id": 51,
+    "KP_target_id": 48
+  },
+  {
+    "KP_source": "Unit Rate (单位速率)",
+    "relation": "requires",
+    "KP_target": "Proportion (比例)",
+    "KP_source_id": 52,
+    "KP_target_id": 50
+  },
+  {
+    "KP_source": "Square Root (平方根)",
+    "relation": "requires",
+    "KP_target": "Nets of 3D Figures (几何体展开图)",
+    "KP_source_id": 53,
+    "KP_target_id": 22
+  },
+  {
+    "KP_source": "Divisibility Rules (整除规则)",
+    "relation": "requires",
+    "KP_target": "Subtraction Whole Numbers (整数减法)",
+    "KP_source_id": 54,
+    "KP_target_id": 46
+  },
+  {
+    "KP_source": "Prime Number (质数/素数)",
+    "relation": "requires",
+    "KP_target": "Subtraction Whole Numbers (整数减法)",
+    "KP_source_id": 55,
+    "KP_target_id": 46
+  },
+  {
+    "KP_source": "Absolute Value (绝对值)",
+    "relation": "requires",
+    "KP_target": "Nets of 3D Figures (几何体展开图)",
+    "KP_source_id": 56,
+    "KP_target_id": 22
+  },
+  {
+    "KP_source": "Exponents (指数/幂)",
+    "relation": "requires",
+    "KP_target": "Algebraic Simplification (代数式化简)",
+    "KP_source_id": 57,
+    "KP_target_id": 70
+  },
+  {
+    "KP_source": "Order of Operations (运算法则)",
+    "relation": "requires",
+    "KP_target": "Multiplication and Division (乘除基础)",
+    "KP_source_id": 58,
+    "KP_target_id": 24
+  },
+  {
+    "KP_source": "Pattern Finding (找规律)",
+    "relation": "requires",
+    "KP_target": "Nets of 3D Figures (几何体展开图)",
+    "KP_source_id": 59,
+    "KP_target_id": 22
+  },
+  {
+    "KP_source": "Proportions (比例)",
+    "relation": "requires",
+    "KP_target": "Proportion (比例)",
+    "KP_source_id": 60,
+    "KP_target_id": 50
+  },
+  {
+    "KP_source": "Skill 61 (技能61-待定)",
+    "relation": "requires",
+    "KP_target": "Nets of 3D Figures (几何体展开图)",
+    "KP_source_id": 61,
+    "KP_target_id": 22
+  },
+  {
+    "KP_source": "Skill 62 (技能62-待定)",
+    "relation": "requires",
+    "KP_target": "Nets of 3D Figures (几何体展开图)",
+    "KP_source_id": 62,
+    "KP_target_id": 22
+  },
+  {
+    "KP_source": "Skill 63 (技能63-待定)",
+    "relation": "requires",
+    "KP_target": "Nets of 3D Figures (几何体展开图)",
+    "KP_source_id": 63,
+    "KP_target_id": 22
+  },
+  {
+    "KP_source": "Percents (百分数)",
+    "relation": "requires",
+    "KP_target": "Proportion (比例)",
+    "KP_source_id": 64,
+    "KP_target_id": 50
+  },
+  {
+    "KP_source": "Probability (概率基础)",
+    "relation": "requires",
+    "KP_target": "Median (中位数)",
+    "KP_source_id": 65,
+    "KP_target_id": 115
+  },
+  {
+    "KP_source": "Skill 66 (技能66-待定)",
+    "relation": "requires",
+    "KP_target": "Nets of 3D Figures (几何体展开图)",
+    "KP_source_id": 66,
+    "KP_target_id": 22
+  },
+  {
+    "KP_source": "Skill 67 (技能67-待定)",
+    "relation": "requires",
+    "KP_target": "Nets of 3D Figures (几何体展开图)",
+    "KP_source_id": 67,
+    "KP_target_id": 22
+  },
+  {
+    "KP_source": "Understanding concept of probabilities (理解概率概念)",
+    "relation": "requires",
+    "KP_target": "Nets of 3D Figures (几何体展开图)",
+    "KP_source_id": 68,
+    "KP_target_id": 22
+  },
+  {
+    "KP_source": "Absolute Value (绝对值)",
+    "relation": "requires",
+    "KP_target": "Nets of 3D Figures (几何体展开图)",
+    "KP_source_id": 69,
+    "KP_target_id": 22
+  },
+  {
+    "KP_source": "Algebraic Solving (代数求解)",
+    "relation": "requires",
+    "KP_target": "Algebraic Simplification (代数式化简)",
+    "KP_source_id": 71,
+    "KP_target_id": 70
+  },
+  {
+    "KP_source": "Absolute Value (绝对值)",
+    "relation": "requires",
+    "KP_target": "Nets of 3D Figures (几何体展开图)",
+    "KP_source_id": 72,
+    "KP_target_id": 22
+  },
+  {
+    "KP_source": "Intercept (截距)",
+    "relation": "requires",
+    "KP_target": "Slope (斜率)",
+    "KP_source_id": 73,
+    "KP_target_id": 78
+  },
+  {
+    "KP_source": "Linear Equations (线性方程)",
+    "relation": "requires",
+    "KP_target": "Algebraic Simplification (代数式化简)",
+    "KP_source_id": 74,
+    "KP_target_id": 70
+  },
+  {
+    "KP_source": "Percent Discount (折扣计算)",
+    "relation": "requires",
+    "KP_target": "Proportion (比例)",
+    "KP_source_id": 75,
+    "KP_target_id": 50
+  },
+  {
+    "KP_source": "Percents (百分数)",
+    "relation": "requires",
+    "KP_target": "Proportion (比例)",
+    "KP_source_id": 76,
+    "KP_target_id": 50
+  },
+  {
+    "KP_source": "Rate (率/速率)",
+    "relation": "requires",
+    "KP_target": "Proportion (比例)",
+    "KP_source_id": 77,
+    "KP_target_id": 50
+  },
+  {
+    "KP_source": "Slope (斜率)",
+    "relation": "requires",
+    "KP_target": "Inequalities (不等式)",
+    "KP_source_id": 78,
+    "KP_target_id": 48
+  },
+  {
+    "KP_source": "Multiplication and Division Positive Decimals (正小数乘除法)",
+    "relation": "requires",
+    "KP_target": "Subtraction Whole Numbers (整数减法)",
+    "KP_source_id": 79,
+    "KP_target_id": 46
+  },
+  {
+    "KP_source": "Scatter Plot (散点图)",
+    "relation": "requires",
+    "KP_target": "Probability (概率基础)",
+    "KP_source_id": 80,
+    "KP_target_id": 65
+  },
+  {
+    "KP_source": "Addition and Subtraction Positive Decimals (正小数加减法)",
+    "relation": "requires",
+    "KP_target": "Subtraction Whole Numbers (整数减法)",
+    "KP_source_id": 81,
+    "KP_target_id": 46
+  },
+  {
+    "KP_source": "Histograms (直方图)",
+    "relation": "requires",
+    "KP_target": "Histogram as Table or Graph (直方图表与统计图)",
+    "KP_source_id": 82,
+    "KP_target_id": 3
+  },
+  {
+    "KP_source": "Stem and Leaf Plot (茎叶图)",
+    "relation": "requires",
+    "KP_target": "Histograms (直方图)",
+    "KP_source_id": 83,
+    "KP_target_id": 82
+  },
+  {
+    "KP_source": "Reflection (镜像/反射)",
+    "relation": "requires",
+    "KP_target": "Pythagorean Theorem (勾股定理/皮氏定理)",
+    "KP_source_id": 84,
+    "KP_target_id": 21
+  },
+  {
+    "KP_source": "Rotations (旋转)",
+    "relation": "requires",
+    "KP_target": "Pythagorean Theorem (勾股定理/皮氏定理)",
+    "KP_source_id": 85,
+    "KP_target_id": 21
+  },
+  {
+    "KP_source": "Rotations (旋转)",
+    "relation": "requires",
+    "KP_target": "Pythagorean Theorem (勾股定理/皮氏定理)",
+    "KP_source_id": 86,
+    "KP_target_id": 21
+  },
+  {
+    "KP_source": "Area Irregular Figure (不规则图形面积)",
+    "relation": "requires",
+    "KP_target": "Surface Area of a Cylinder (圆柱表面积)",
+    "KP_source_id": 87,
+    "KP_target_id": 32
+  },
+  {
+    "KP_source": "Area Parallelogram (平行四边形面积)",
+    "relation": "requires",
+    "KP_target": "Surface Area of a Cylinder (圆柱表面积)",
+    "KP_source_id": 88,
+    "KP_target_id": 32
+  },
+  {
+    "KP_source": "Translations (平移)",
+    "relation": "requires",
+    "KP_target": "Pythagorean Theorem (勾股定理/皮氏定理)",
+    "KP_source_id": 89,
+    "KP_target_id": 21
+  },
+  {
+    "KP_source": "Area Trapezoid (梯形面积)",
+    "relation": "requires",
+    "KP_target": "Surface Area of a Cylinder (圆柱表面积)",
+    "KP_source_id": 90,
+    "KP_target_id": 32
+  },
+  {
+    "KP_source": "Symmetry (对称性)",
+    "relation": "requires",
+    "KP_target": "Pythagorean Theorem (勾股定理/皮氏定理)",
+    "KP_source_id": 91,
+    "KP_target_id": 21
+  },
+  {
+    "KP_source": "Surface Area Cylinder (圆柱表面积)",
+    "relation": "requires",
+    "KP_target": "Surface Area of a Cylinder (圆柱表面积)",
+    "KP_source_id": 92,
+    "KP_target_id": 32
+  },
+  {
+    "KP_source": "Surface Area Rectangular Prism (长方体表面积)",
+    "relation": "requires",
+    "KP_target": "Surface Area of a Cylinder (圆柱表面积)",
+    "KP_source_id": 93,
+    "KP_target_id": 32
+  },
+  {
+    "KP_source": "Volume Cylinder (圆柱体积)",
+    "relation": "requires",
+    "KP_target": "Volume of a Rectangular Prism (长方体体积)",
+    "KP_source_id": 94,
+    "KP_target_id": 35
+  },
+  {
+    "KP_source": "Volume (体积基础)",
+    "relation": "requires",
+    "KP_target": "Volume of a Rectangular Prism (长方体体积)",
+    "KP_source_id": 95,
+    "KP_target_id": 35
+  },
+  {
+    "KP_source": "Volume Sphere (球体体积)",
+    "relation": "requires",
+    "KP_target": "Volume of a Rectangular Prism (长方体体积)",
+    "KP_source_id": 96,
+    "KP_target_id": 35
+  },
+  {
+    "KP_source": "Order of Operations positive reals (正实数四则运算法则)",
+    "relation": "requires",
+    "KP_target": "Order of Operations (运算法则)",
+    "KP_source_id": 97,
+    "KP_target_id": 58
+  },
+  {
+    "KP_source": "Order of Operations All (综合运算顺序)",
+    "relation": "requires",
+    "KP_target": "Order of Operations (运算法则)",
+    "KP_source_id": 98,
+    "KP_target_id": 58
+  },
+  {
+    "KP_source": "Equation Solving Two or Fewer Steps (简易方程求解)",
+    "relation": "requires",
+    "KP_target": "Algebraic Simplification (代数式化简)",
+    "KP_source_id": 99,
+    "KP_target_id": 70
+  },
+  {
+    "KP_source": "Volume of Cylinder (圆柱体积)",
+    "relation": "requires",
+    "KP_target": "Volume of a Rectangular Prism (长方体体积)",
+    "KP_source_id": 100,
+    "KP_target_id": 35
+  },
+  {
+    "KP_source": "Volume of a Cone (圆锥体积)",
+    "relation": "requires",
+    "KP_target": "Volume of a Rectangular Prism (长方体体积)",
+    "KP_source_id": 101,
+    "KP_target_id": 35
+  },
+  {
+    "KP_source": "Greatest Common Factor (最大公约数)",
+    "relation": "requires",
+    "KP_target": "Proportion (比例)",
+    "KP_source_id": 102,
+    "KP_target_id": 50
+  },
+  {
+    "KP_source": "Computation with Real Numbers (实数计算)",
+    "relation": "requires",
+    "KP_target": "Nets of 3D Figures (几何体展开图)",
+    "KP_source_id": 103,
+    "KP_target_id": 22
+  },
+  {
+    "KP_source": "Write Linear Equation from Ordered Pairs (根据坐标对写线性方程)",
+    "relation": "requires",
+    "KP_target": "Solving Systems of Linear Equations by Graphing (利用图像解线性方程组)",
+    "KP_source_id": 104,
+    "KP_target_id": 123
+  },
+  {
+    "KP_source": "Writing Linear Eq (写线性方程)",
+    "relation": "requires",
+    "KP_target": "Nets of 3D Figures (几何体展开图)",
+    "KP_source_id": 105,
+    "KP_target_id": 22
+  },
+  {
+    "KP_source": "Slope (斜率)",
+    "relation": "requires",
+    "KP_target": "Solving Systems of Linear Equations by Graphing (利用图像解线性方程组)",
+    "KP_source_id": 106,
+    "KP_target_id": 123
+  },
+  {
+    "KP_source": "Write Linear Equation from Graph (根据图像写线性方程)",
+    "relation": "requires",
+    "KP_target": "Solving Systems of Linear Equations by Graphing (利用图像解线性方程组)",
+    "KP_source_id": 107,
+    "KP_target_id": 123
+  },
+  {
+    "KP_source": "Finding Slope From Situation (从情境中求斜率)",
+    "relation": "requires",
+    "KP_target": "Solving Systems of Linear Equations by Graphing (利用图像解线性方程组)",
+    "KP_source_id": 108,
+    "KP_target_id": 123
+  },
+  {
+    "KP_source": "Finding Slope From Equation (根据方程求斜率)",
+    "relation": "requires",
+    "KP_target": "Solving Systems of Linear Equations by Graphing (利用图像解线性方程组)",
+    "KP_source_id": 109,
+    "KP_target_id": 123
+  },
+  {
+    "KP_source": "Probability (中高阶概率)",
+    "relation": "requires",
+    "KP_target": "Median (中位数)",
+    "KP_source_id": 110,
+    "KP_target_id": 115
+  },
+  {
+    "KP_source": "Distributive Property (乘法分配律)",
+    "relation": "requires",
+    "KP_target": "Nets of 3D Figures (几何体展开图)",
+    "KP_source_id": 111,
+    "KP_target_id": 22
+  },
+  {
+    "KP_source": "Midpoint (中点)",
+    "relation": "requires",
+    "KP_target": "Nets of 3D Figures (几何体展开图)",
+    "KP_source_id": 112,
+    "KP_target_id": 22
+  },
+  {
+    "KP_source": "Polynomial Factors (多项式因式分解)",
+    "relation": "requires",
+    "KP_target": "Quadratic Formula to Solve Quadratic Equation (二次方程求根公式)",
+    "KP_source_id": 113,
+    "KP_target_id": 116
+  },
+  {
+    "KP_source": "Recognize Quadratic Pattern (识别二次项规律)",
+    "relation": "requires",
+    "KP_target": "Quadratic Formula to Solve Quadratic Equation (二次方程求根公式)",
+    "KP_source_id": 114,
+    "KP_target_id": 116
+  },
+  {
+    "KP_source": "Median (中位数)",
+    "relation": "requires",
+    "KP_target": "Mean (平均数)",
+    "KP_source_id": 115,
+    "KP_target_id": 9
+  },
+  {
+    "KP_source": "Quadratic Formula to Solve Quadratic Equation (二次方程求根公式)",
+    "relation": "requires",
+    "KP_target": "Solving Systems of Linear Equations by Graphing (利用图像解线性方程组)",
+    "KP_source_id": 116,
+    "KP_target_id": 123
+  },
+  {
+    "KP_source": "Parts of a Polyomial (多项式构成：项、系数、变量、指数等)",
+    "relation": "requires",
+    "KP_target": "Nets of 3D Figures (几何体展开图)",
+    "KP_source_id": 117,
+    "KP_target_id": 22
+  },
+  {
+    "KP_source": "Interpreting Coordinate Graphs (坐标图解读)",
+    "relation": "requires",
+    "KP_target": "Median (中位数)",
+    "KP_source_id": 118,
+    "KP_target_id": 115
+  },
+  {
+    "KP_source": "Skill 119 (技能119-待定)",
+    "relation": "requires",
+    "KP_target": "Nets of 3D Figures (几何体展开图)",
+    "KP_source_id": 119,
+    "KP_target_id": 22
+  },
+  {
+    "KP_source": "Solving for a variable (求指定变量/公式变形)",
+    "relation": "requires",
+    "KP_target": "Algebraic Simplification (代数式化简)",
+    "KP_source_id": 120,
+    "KP_target_id": 70
+  },
+  {
+    "KP_source": "Simplifying Expressions positive exponents (正指数幂化简)",
+    "relation": "requires",
+    "KP_target": "Algebraic Simplification (代数式化简)",
+    "KP_source_id": 121,
+    "KP_target_id": 70
+  },
+  {
+    "KP_source": "Mean (平均数)",
+    "relation": "requires",
+    "KP_target": "Median (中位数)",
+    "KP_source_id": 122,
+    "KP_target_id": 115
+  },
+  {
+    "KP_source": "Solving Systems of Linear Equations by Graphing (利用图像解线性方程组)",
+    "relation": "requires",
+    "KP_target": "Intercept (截距)",
+    "KP_source_id": 123,
+    "KP_target_id": 73
+  }
+]

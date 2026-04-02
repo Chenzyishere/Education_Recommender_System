@@ -1,0 +1,124 @@
+﻿skill_id,skill_name,norm_name,domain,level
+1,Algebraic Solving (代数求解),algebraic solving,Algebra_Equation_Function,0
+57,Exponents (指数/幂),exponents,Algebra_Equation_Function,0
+70,Algebraic Simplification (代数式化简),algebraic simplification,Algebra_Equation_Function,0
+71,Algebraic Solving (代数求解),algebraic solving,Algebra_Equation_Function,0
+99,Equation Solving Two or Fewer Steps (简易方程求解),equation solving two or fewer steps,Algebra_Equation_Function,0
+120,Solving for a variable (求指定变量/公式变形),solving for a variable,Algebra_Equation_Function,0
+121,Simplifying Expressions positive exponents (正指数幂化简),simplifying expressions positive exponents,Algebra_Equation_Function,0
+45,Linear Equations (线性方程),linear equations,Algebra_Equation_Function,1
+74,Linear Equations (线性方程),linear equations,Algebra_Equation_Function,1
+104,Write Linear Equation from Ordered Pairs (根据坐标对写线性方程),write linear equation from ordered pairs,Algebra_Equation_Function,1
+107,Write Linear Equation from Graph (根据图像写线性方程),write linear equation from graph,Algebra_Equation_Function,1
+123,Solving Systems of Linear Equations by Graphing (利用图像解线性方程组),solving systems of linear equations by graphing,Algebra_Equation_Function,1
+48,Inequalities (不等式),inequalities,Algebra_Equation_Function,2
+73,Intercept (截距),intercept,Algebra_Equation_Function,2
+78,Slope (斜率),slope,Algebra_Equation_Function,2
+106,Slope (斜率),slope,Algebra_Equation_Function,2
+108,Finding Slope From Situation (从情境中求斜率),finding slope from situation,Algebra_Equation_Function,2
+109,Finding Slope From Equation (根据方程求斜率),finding slope from equation,Algebra_Equation_Function,2
+51,Scientific Notation (科学计数法),scientific notation,Algebra_Equation_Function,3
+113,Polynomial Factors (多项式因式分解),polynomial factors,Algebra_Equation_Function,3
+114,Recognize Quadratic Pattern (识别二次项规律),recognize quadratic pattern,Algebra_Equation_Function,3
+116,Quadratic Formula to Solve Quadratic Equation (二次方程求根公式),quadratic formula to solve quadratic equation,Algebra_Equation_Function,3
+24,Multiplication and Division (乘除基础),multiplication and division,Arithmetic,0
+38,Addition Whole Numbers (整数加法),addition whole numbers,Arithmetic,0
+40,Estimation (估算),estimation,Arithmetic,0
+44,Multiplication Whole Numbers (整数乘法),multiplication whole numbers,Arithmetic,0
+46,Subtraction Whole Numbers (整数减法),subtraction whole numbers,Arithmetic,0
+54,Divisibility Rules (整除规则),divisibility rules,Arithmetic,0
+55,Prime Number (质数/素数),prime number,Arithmetic,0
+79,Multiplication and Division Positive Decimals (正小数乘除法),multiplication and division positive decimals,Arithmetic,0
+81,Addition and Subtraction Positive Decimals (正小数加减法),addition and subtraction positive decimals,Arithmetic,0
+58,Order of Operations (运算法则),order of operations,Arithmetic,1
+97,Order of Operations positive reals (正实数四则运算法则),order of operations positive reals,Arithmetic,1
+98,Order of Operations All (综合运算顺序),order of operations all,Arithmetic,1
+2,Unit Rate (单位速率),unit rate,Fraction_Ratio_Percent,0
+12,Fractions Addition (分数加减),fractions addition,Fraction_Ratio_Percent,0
+16,Least Common Multiple (最小公倍数),least common multiple,Fraction_Ratio_Percent,0
+42,Least Common Multiple (最小公倍数),least common multiple,Fraction_Ratio_Percent,0
+50,Proportion (比例),proportion,Fraction_Ratio_Percent,0
+52,Unit Rate (单位速率),unit rate,Fraction_Ratio_Percent,0
+60,Proportions (比例),proportions,Fraction_Ratio_Percent,0
+77,Rate (率/速率),rate,Fraction_Ratio_Percent,0
+102,Greatest Common Factor (最大公约数),greatest common factor,Fraction_Ratio_Percent,0
+13,Fractions Multiplication (分数乘法),fractions multiplication,Fraction_Ratio_Percent,1
+14,Fractions Division (分数除法),fractions division,Fraction_Ratio_Percent,1
+15,Ordering Fractions (分数排序),ordering fractions,Fraction_Ratio_Percent,1
+18,Fractions Greater than One (假分数),fractions greater than one,Fraction_Ratio_Percent,1
+31,Conversion of Fraction Decimals Percents (分数/小数/百分数互化),conversion of fraction decimals percents,Fraction_Ratio_Percent,1
+34,Ordering Fractions (分数排序),ordering fractions,Fraction_Ratio_Percent,1
+39,Division Fractions (分数除法),division fractions,Fraction_Ratio_Percent,1
+41,Fraction Of (求一个数的几分之几),fraction of,Fraction_Ratio_Percent,1
+43,Multiplication Fractions (分数乘法),multiplication fractions,Fraction_Ratio_Percent,1
+49,Finding Percents (百分比计算),finding percents,Fraction_Ratio_Percent,1
+64,Percents (百分数),percents,Fraction_Ratio_Percent,1
+75,Percent Discount (折扣计算),percent discount,Fraction_Ratio_Percent,1
+76,Percents (百分数),percents,Fraction_Ratio_Percent,1
+22,Nets of 3D Figures (几何体展开图),nets of 3d figures,General_Math,0
+23,Unit Conversion Within a System (同系单位换算),unit conversion within a system,General_Math,0
+25,Skill 25 (技能25-待定),skill 25,General_Math,0
+29,Reading a Ruler or Scale (刻度尺读数),reading a ruler or scale,General_Math,0
+36,Ordering Real Numbers (实数排序),ordering real numbers,General_Math,0
+47,Square Root (平方根),square root,General_Math,0
+53,Square Root (平方根),square root,General_Math,0
+56,Absolute Value (绝对值),absolute value,General_Math,0
+59,Pattern Finding (找规律),pattern finding,General_Math,0
+61,Skill 61 (技能61-待定),skill 61,General_Math,0
+62,Skill 62 (技能62-待定),skill 62,General_Math,0
+63,Skill 63 (技能63-待定),skill 63,General_Math,0
+66,Skill 66 (技能66-待定),skill 66,General_Math,0
+67,Skill 67 (技能67-待定),skill 67,General_Math,0
+68,Understanding concept of probabilities (理解概率概念),understanding concept of probabilities,General_Math,0
+69,Absolute Value (绝对值),absolute value,General_Math,0
+72,Absolute Value (绝对值),absolute value,General_Math,0
+103,Computation with Real Numbers (实数计算),computation with real numbers,General_Math,0
+105,Writing Linear Eq (写线性方程),writing linear eq,General_Math,0
+111,Distributive Property (乘法分配律),distributive property,General_Math,0
+112,Midpoint (中点),midpoint,General_Math,0
+117,Parts of a Polyomial (多项式构成：项、系数、变量、指数等),parts of a polyomial,General_Math,0
+119,Skill 119 (技能119-待定),skill 119,General_Math,0
+5,Angles - Interior (内角),angles - interior,Geometry_Measurement,0
+17,Interior Angles Triangle (三角形内角),interior angles triangle,Geometry_Measurement,0
+19,Complementary and Supplementary Angles (余角与补角),complementary and supplementary angles,Geometry_Measurement,0
+20,Angles on Parallel Lines Cut by a Transversal (平行线截角性质),angles on parallel lines cut by a transversal,Geometry_Measurement,0
+21,Pythagorean Theorem (勾股定理/皮氏定理),pythagorean theorem,Geometry_Measurement,0
+28,Pythagorean Theorem (勾股定理),pythagorean theorem,Geometry_Measurement,0
+30,Calculations with Similar Figures (相似图形计算),calculations with similar figures,Geometry_Measurement,0
+84,Reflection (镜像/反射),reflection,Geometry_Measurement,0
+85,Rotations (旋转),rotations,Geometry_Measurement,0
+86,Rotations (旋转),rotations,Geometry_Measurement,0
+89,Translations (平移),translations,Geometry_Measurement,0
+91,Symmetry (对称性),symmetry,Geometry_Measurement,0
+8,Area of a Triangle (三角形面积),area of a triangle,Geometry_Measurement,1
+10,Area of a Circle (圆面积),area of a circle,Geometry_Measurement,1
+26,Area Circle (圆面积),area circle,Geometry_Measurement,1
+27,Perimeter (多边形周长),perimeter,Geometry_Measurement,1
+32,Surface Area of a Cylinder (圆柱表面积),surface area of a cylinder,Geometry_Measurement,1
+33,Surface Area (表面积基础),surface area,Geometry_Measurement,1
+87,Area Irregular Figure (不规则图形面积),area irregular figure,Geometry_Measurement,1
+88,Area Parallelogram (平行四边形面积),area parallelogram,Geometry_Measurement,1
+90,Area Trapezoid (梯形面积),area trapezoid,Geometry_Measurement,1
+92,Surface Area Cylinder (圆柱表面积),surface area cylinder,Geometry_Measurement,1
+93,Surface Area Rectangular Prism (长方体表面积),surface area rectangular prism,Geometry_Measurement,1
+35,Volume of a Rectangular Prism (长方体体积),volume of a rectangular prism,Geometry_Measurement,2
+37,Volume of a Triangular Prism (三棱柱体积),volume of a triangular prism,Geometry_Measurement,2
+94,Volume Cylinder (圆柱体积),volume cylinder,Geometry_Measurement,2
+95,Volume (体积基础),volume,Geometry_Measurement,2
+96,Volume Sphere (球体体积),volume sphere,Geometry_Measurement,2
+100,Volume of Cylinder (圆柱体积),volume of cylinder,Geometry_Measurement,2
+101,Volume of a Cone (圆锥体积),volume of a cone,Geometry_Measurement,2
+3,Histogram as Table or Graph (直方图表与统计图),histogram as table or graph,Statistics_Probability_Graph,0
+4,Number Line (数轴),number line,Statistics_Probability_Graph,0
+7,Table (统计表),table,Statistics_Probability_Graph,0
+9,Mean (平均数),mean,Statistics_Probability_Graph,0
+11,Box and Whisker Plot (箱线图),box and whisker plot,Statistics_Probability_Graph,0
+115,Median (中位数),median,Statistics_Probability_Graph,0
+118,Interpreting Coordinate Graphs (坐标图解读),interpreting coordinate graphs,Statistics_Probability_Graph,0
+122,Mean (平均数),mean,Statistics_Probability_Graph,0
+6,Stem and Leaf Plot (茎叶图),stem and leaf plot,Statistics_Probability_Graph,1
+82,Histograms (直方图),histograms,Statistics_Probability_Graph,1
+83,Stem and Leaf Plot (茎叶图),stem and leaf plot,Statistics_Probability_Graph,1
+65,Probability (概率基础),probability,Statistics_Probability_Graph,2
+80,Scatter Plot (散点图),scatter plot,Statistics_Probability_Graph,2
+110,Probability (中高阶概率),probability,Statistics_Probability_Graph,2

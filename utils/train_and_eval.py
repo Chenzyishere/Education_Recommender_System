@@ -1,6 +1,7 @@
 import json
 import os
 import random
+import sys
 
 import matplotlib
 import numpy as np
@@ -10,6 +11,12 @@ import torch.nn as nn
 import torch.optim as optim
 from sklearn.metrics import mean_squared_error, roc_auc_score
 from torch.utils.data import DataLoader
+
+# Ensure project root is importable when running: python utils/train_and_eval.py
+CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
+PROJECT_ROOT = os.path.dirname(CURRENT_DIR)
+if PROJECT_ROOT not in sys.path:
+    sys.path.insert(0, PROJECT_ROOT)
 
 from models.dkt import DKTModel
 from models.kg_sakt import KGSAKTModel
@@ -22,8 +29,9 @@ import matplotlib.pyplot as plt
 
 
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DATA_DIR = os.path.join(BASE_DIR, "data")
+BASE_DIR = PROJECT_ROOT
+DATA_DIR = os.path.join(PROJECT_ROOT, "data")
+RENDERED_DIR = os.path.join(PROJECT_ROOT, "rendered")
 CLEAN_DATA_PATH = os.path.join(DATA_DIR, "assist9_cleaned.csv")
 KG_JSON_PATH = os.path.join(DATA_DIR, "kg_adj_list.json")
 KG_MODEL_SAVE_PATH = os.path.join(DATA_DIR, "kg_sakt_model.pth")
@@ -147,11 +155,16 @@ def compute_sequence_loss(name, model, batch, criterion, kg_matrix, logic_lambda
         target_logits = outputs.gather(dim=-1, index=q.unsqueeze(-1)).squeeze(-1)
     base_loss = criterion(target_logits[valid_mask], y[valid_mask])
 
+    # Only KG-SAKT uses training-in logic regularization.
+    # DKT/SAKT output shapes do not carry full skill distribution per timestep.
     if name != "KG-SAKT":
         return base_loss
 
-    # Margin-based logic loss:
-    # enforce P(prereq) >= P(target) - margin for prerequisite edges.
+    # Defensive fallback: if unexpected shape appears, keep stable training.
+    if outputs.dim() != 3:
+        return base_loss
+
+    # KG training-in loss: margin-based logic consistency.
     probs = torch.sigmoid(outputs)
     target_probs = probs.gather(dim=-1, index=q.unsqueeze(-1)).squeeze(-1)
     prereq_mask = kg_matrix[q]
@@ -163,7 +176,7 @@ def compute_sequence_loss(name, model, batch, criterion, kg_matrix, logic_lambda
     return base_loss + logic_lambda * logic_penalty
 
 
-def evaluate_metrics(name, model, kg_matrix, loader):
+def evaluate_metrics(name, model, kg_adj, loader):
     """
     Return both prediction metrics and logic/path metrics.
     Added logic diagnostics:
@@ -208,11 +221,7 @@ def evaluate_metrics(name, model, kg_matrix, loader):
                 pred_prob = model(user_ids[keep_rows], q_last)
                 full_dist = None
             else:
-                outputs = (
-                    model(q, x)
-                    if name != "KG-SAKT"
-                    else model(q, x, kg_matrix=kg_matrix, time_bucket=time_bucket)
-                )
+                outputs = model(q, x) if name != "KG-SAKT" else model(q, x, kg_matrix=None, time_bucket=time_bucket)
                 if outputs.dim() == 2:
                     pred_prob = torch.sigmoid(outputs[keep_rows, last_idx])
                     full_dist = None
@@ -226,46 +235,67 @@ def evaluate_metrics(name, model, kg_matrix, loader):
 
             if full_dist is not None:
                 # "Recommended skill" proxy = highest predicted mastery among non-padding skills.
-                rec_skills = torch.argmax(full_dist[:, 1:], dim=-1) + 1
-                prereq_mask = kg_matrix[rec_skills]
-                mastery_mask = full_dist >= MASTERY_THRESHOLD
-                violations = (prereq_mask == 1) & (~mastery_mask)
-                compliance_hits += (violations.sum(dim=1) == 0).sum().item()
-                total_checks += rec_skills.size(0)
+                rec_skills = (torch.argmax(full_dist[:, 1:], dim=-1) + 1).cpu().tolist()
+                full_dist_np = full_dist.cpu().numpy()
 
-                # ---------- PVR / APC ----------
-                prereq_count = prereq_mask.sum(dim=1)  # number of prereq edges for each recommended skill
-                satisfied_count = ((prereq_mask == 1) & mastery_mask).sum(dim=1)
-                violation_count = ((prereq_mask == 1) & (~mastery_mask)).sum(dim=1)
+                for i, rec_skill in enumerate(rec_skills):
+                    prereqs = kg_adj.get(str(int(rec_skill)), [])
+                    mastery = full_dist_np[i]
+                    mastery_mask = mastery >= MASTERY_THRESHOLD
+                    rec_prob = float(mastery[int(rec_skill)])
 
-                total_prereq_edges += prereq_count.sum().item()
-                total_prereq_violations += violation_count.sum().item()
+                    total_checks += 1
+                    if not prereqs:
+                        compliance_hits += 1
+                        total_depth_consistent += 1
+                        total_depth_cases += 1
+                        continue
 
-                valid_cov = prereq_count > 0
-                if valid_cov.any():
-                    cov_ratio = (satisfied_count[valid_cov] / prereq_count[valid_cov]).sum().item()
-                    total_prereq_coverage += cov_ratio
-                    total_coverage_cases += valid_cov.sum().item()
+                    prereq_count = 0
+                    satisfied_count = 0
+                    violation_count = 0
+                    violation_severity = 0.0
 
-                # ---------- VS ----------
-                # Severity uses the same margin idea as training-time logic loss.
-                rec_prob = full_dist.gather(1, rec_skills.unsqueeze(1))
-                edge_margin_violation = torch.relu(LOGIC_MARGIN + rec_prob - full_dist) * prereq_mask
-                total_violation_severity += edge_margin_violation.sum().item()
+                    for p in prereqs:
+                        p_idx = int(p)
+                        if p_idx <= 0 or p_idx >= len(mastery):
+                            continue
+                        prereq_count += 1
+                        p_prob = float(mastery[p_idx])
+                        if mastery_mask[p_idx]:
+                            satisfied_count += 1
+                        else:
+                            violation_count += 1
+                        violation_severity += max(0.0, LOGIC_MARGIN + rec_prob - p_prob)
 
-                # ---------- RDC ----------
-                # If student already masters deeper skills, deeper recommendations are acceptable.
-                # Otherwise recommending too deep skills is considered inconsistent.
-                mastered_mask = mastery_mask[:, 1:]  # remove padding skill 0
-                mastered_depth = SKILL_DEPTHS_DEVICE[1:].unsqueeze(0) * mastered_mask.float()
-                mastered_count = mastered_mask.sum(dim=1)
-                mastered_mean_depth = mastered_depth.sum(dim=1) / mastered_count.clamp_min(1)
-                # For users with no mastered skills yet, use root-level baseline (depth 0 -> allow depth <=1).
-                allowed_depth = torch.where(mastered_count > 0, mastered_mean_depth + 1.0, torch.ones_like(mastered_mean_depth))
-                rec_depth = SKILL_DEPTHS_DEVICE[rec_skills]
-                depth_consistent = (rec_depth <= allowed_depth).float()
-                total_depth_consistent += depth_consistent.sum().item()
-                total_depth_cases += rec_skills.size(0)
+                    if prereq_count == 0:
+                        compliance_hits += 1
+                        total_depth_consistent += 1
+                        total_depth_cases += 1
+                        continue
+
+                    total_prereq_edges += prereq_count
+                    total_prereq_violations += violation_count
+                    total_prereq_coverage += satisfied_count / prereq_count
+                    total_coverage_cases += 1
+                    total_violation_severity += violation_severity
+                    if violation_count == 0:
+                        compliance_hits += 1
+
+                    # ---------- RDC ----------
+                    # Dictionary-based evaluation: compare recommendation depth with mastered depth.
+                    mastered_skills = [
+                        s for s in range(1, len(mastery))
+                        if mastery_mask[s]
+                    ]
+                    if mastered_skills:
+                        mean_depth = float(np.mean([SKILL_DEPTHS[s] for s in mastered_skills]))
+                        allowed_depth = mean_depth + 1.0
+                    else:
+                        allowed_depth = 1.0
+                    rec_depth = SKILL_DEPTHS.get(int(rec_skill), 0.0)
+                    total_depth_consistent += 1.0 if rec_depth <= allowed_depth else 0.0
+                    total_depth_cases += 1
 
     y_true = np.array(y_true)
     y_pred = np.array(y_pred)
@@ -303,7 +333,7 @@ def create_loaders(df, n_skills):
     return train_loader, val_loader, test_loader
 
 
-def save_metrics_and_plots(final_results, output_dir):
+def save_metrics_and_plots(final_results, csv_dir, chart_dir):
     """
     Export final metrics table to CSV and draw logic-focused charts.
     Generated files:
@@ -311,13 +341,14 @@ def save_metrics_and_plots(final_results, output_dir):
     - logic_metrics_bar.png
     - logic_metrics_radar.png
     """
-    os.makedirs(output_dir, exist_ok=True)
+    os.makedirs(csv_dir, exist_ok=True)
+    os.makedirs(chart_dir, exist_ok=True)
 
     df = pd.DataFrame(
         final_results,
         columns=["Model", "BestEp", "AUC", "RMSE", "Path", "PVR", "APC", "VS", "RDC"],
     )
-    csv_path = os.path.join(output_dir, "logic_metrics_comparison.csv")
+    csv_path = os.path.join(csv_dir, "logic_metrics_comparison.csv")
     df.to_csv(csv_path, index=False)
 
     # Only models with logic outputs can be plotted on logic charts.
@@ -345,7 +376,7 @@ def save_metrics_and_plots(final_results, output_dir):
     plt.title("Logic Metrics Comparison (Bar)")
     plt.legend()
     plt.tight_layout()
-    bar_path = os.path.join(output_dir, "logic_metrics_bar.png")
+    bar_path = os.path.join(chart_dir, "logic_metrics_bar.png")
     plt.savefig(bar_path, dpi=200)
     plt.close()
 
@@ -391,7 +422,7 @@ def save_metrics_and_plots(final_results, output_dir):
     ax.set_title("Logic Metrics Radar (Normalized)")
     ax.legend(loc="upper right", bbox_to_anchor=(1.2, 1.1))
     plt.tight_layout()
-    radar_path = os.path.join(output_dir, "logic_metrics_radar.png")
+    radar_path = os.path.join(chart_dir, "logic_metrics_radar.png")
     plt.savefig(radar_path, dpi=200)
     plt.close()
 
@@ -413,8 +444,8 @@ def main():
     kg_matrix = build_kg_matrix(kg_adj, n_skills, DEVICE)
     # Precompute skill depth once for RDC metric.
     skill_depths = compute_skill_depths_from_kg(kg_adj, n_skills)
-    global SKILL_DEPTHS_DEVICE
-    SKILL_DEPTHS_DEVICE = skill_depths.to(DEVICE)
+    global SKILL_DEPTHS
+    SKILL_DEPTHS = {i: float(skill_depths[i].item()) for i in range(len(skill_depths))}
 
     train_loader, val_loader, test_loader = create_loaders(df, n_skills)
 
@@ -466,7 +497,7 @@ def main():
                 optimizer.step()
                 epoch_losses.append(loss.item())
 
-            val_auc, val_rmse, val_comp, val_pvr, val_apc, val_vs, val_rdc = evaluate_metrics(name, model, kg_matrix, val_loader)
+            val_auc, val_rmse, val_comp, val_pvr, val_apc, val_vs, val_rdc = evaluate_metrics(name, model, kg_adj, val_loader)
             val_score = model_selection_score(name, val_auc, val_comp)
             if val_score > best_score:
                 best_score = val_score
@@ -508,7 +539,7 @@ def main():
             f"AUC {best_val_auc:.4f} | RMSE {best_val_rmse:.4f} | Path {best_val_comp_text}"
         )
 
-        final_auc, final_rmse, final_comp, final_pvr, final_apc, final_vs, final_rdc = evaluate_metrics(name, model, kg_matrix, test_loader)
+        final_auc, final_rmse, final_comp, final_pvr, final_apc, final_vs, final_rdc = evaluate_metrics(name, model, kg_adj, test_loader)
         final_results.append((name, best_epoch, final_auc, final_rmse, final_comp, final_pvr, final_apc, final_vs, final_rdc))
 
     print("\n" + "Experiment Results".center(76, "="))
@@ -530,7 +561,7 @@ def main():
     print("=" * 76)
 
     # Export CSV and charts after final summary for reporting/visualization.
-    save_metrics_and_plots(final_results, DATA_DIR)
+    save_metrics_and_plots(final_results, csv_dir=DATA_DIR, chart_dir=RENDERED_DIR)
 
 
 if __name__ == "__main__":
