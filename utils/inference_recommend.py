@@ -1,9 +1,16 @@
 import json
 import os
+import sys
 from typing import Dict, List, Tuple
 
 import numpy as np
 import torch
+
+# Ensure project root is importable when running: python utils/inference_recommend.py
+CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
+PROJECT_ROOT = os.path.dirname(CURRENT_DIR)
+if PROJECT_ROOT not in sys.path:
+    sys.path.insert(0, PROJECT_ROOT)
 
 from models.kg_sakt import KGSAKTModel
 
@@ -22,12 +29,11 @@ def resolve_device() -> torch.device:
 
 
 DEVICE = resolve_device()
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DATA_DIR = os.path.join(BASE_DIR, "data")
+BASE_DIR = PROJECT_ROOT
+DATA_DIR = os.path.join(PROJECT_ROOT, "data")
 
 KG_JSON_PATH = os.path.join(DATA_DIR, "kg_adj_list.json")
 SKILL_MAP_JSON_PATH = os.path.join(DATA_DIR, "skill_map.json")
-SKILL_MAP_CSV_PATH = os.path.join(DATA_DIR, "skill_map.csv")
 MODEL_WEIGHTS = os.path.join(DATA_DIR, "kg_sakt_model.pth")
 OUTPUT_JSON_PATH = os.path.join(DATA_DIR, "recommendation_simulation.json")
 
@@ -106,22 +112,11 @@ def wrap_text_by_width(text: str, width: int) -> List[str]:
 
 
 def load_skill_map() -> Dict[str, str]:
-    """Load skill mapping from JSON first, fallback to CSV."""
+    """Load skill mapping from JSON only."""
     if os.path.exists(SKILL_MAP_JSON_PATH):
         with open(SKILL_MAP_JSON_PATH, "r", encoding="utf-8") as f:
             data = json.load(f)
         return {str(k): str(v) for k, v in data.items()}
-
-    if os.path.exists(SKILL_MAP_CSV_PATH):
-        skill_map = {}
-        with open(SKILL_MAP_CSV_PATH, "r", encoding="utf-8") as f:
-            next(f, None)
-            for line in f:
-                parts = line.strip().split(",")
-                if len(parts) >= 2:
-                    old_id, new_id = parts[0], parts[1]
-                    skill_map[str(new_id)] = f"Skill {new_id} (old:{old_id})"
-        return skill_map
 
     return {}
 
@@ -256,15 +251,48 @@ def prereq_readiness(skill_id: int, mastery: np.ndarray, kg_adj: Dict[str, List[
     return float(np.mean(covered)), float(np.mean(vals))
 
 
-def generate_reason(skill_id: int, prob: float, readiness: float, prereq_mean: float, kg_adj: Dict[str, List[int]]) -> str:
-    if str(skill_id) in kg_adj:
+def get_mastered_prereq_names(
+    skill_id: int,
+    mastery: np.ndarray,
+    kg_adj: Dict[str, List[int]],
+    skill_map: Dict[str, str],
+    threshold: float = 0.5,
+) -> List[str]:
+    """
+    Return prerequisite skill names that are already mastered by the student.
+    Mastered is defined as predicted mastery >= threshold.
+    """
+    prereqs = kg_adj.get(str(skill_id), [])
+    names = []
+    for p in prereqs:
+        if 0 < p < len(mastery) and float(mastery[p]) >= threshold:
+            names.append(skill_map.get(str(p), f"Skill {p}"))
+    return names
+
+
+def generate_reason(
+    skill_name: str,
+    mastered_prereq_names: List[str],
+    skill_id: int,
+    prob: float,
+    readiness: float,
+    prereq_mean: float,
+    kg_adj: Dict[str, List[int]],
+) -> str:
+    # Requested explanation template:
+    # "因为掌握了xxx前置知识，所以推荐xxx"
+    if mastered_prereq_names:
+        prereq_text = "、".join(mastered_prereq_names[:3]) + ("等" if len(mastered_prereq_names) > 3 else "")
+    elif str(skill_id) in kg_adj:
         level = "高" if readiness >= 0.8 else "中" if readiness >= 0.6 else "低"
-        return f"前置覆盖{level}（均值{prereq_mean:.2f}），当前掌握{prob:.2f}，适合作为下一步学习。"
-    if 0.45 <= prob <= 0.75:
-        return "处于最近发展区，预计学习收益较高。"
-    if prob > 0.75:
-        return "掌握较高，可用于巩固与迁移练习。"
-    return "基础尚弱，建议先补齐前置知识。"
+        prereq_text = f"部分基础前置知识（覆盖{level}，均值{prereq_mean:.2f}）"
+    elif 0.45 <= prob <= 0.75:
+        prereq_text = "当前阶段可承接的基础知识"
+    elif prob > 0.75:
+        prereq_text = "已具备的核心基础知识"
+    else:
+        prereq_text = "待巩固的基础知识"
+    return f"因为掌握了{prereq_text}，所以推荐{skill_name}。"
 
 
 def recommend_resources(
@@ -293,15 +321,30 @@ def recommend_resources(
         zpd = zpd_score(prob)
         novelty = 1.0 - history_counter.get(s, 0) / max_repeat
         score = 0.55 * zpd + 0.35 * readiness + 0.10 * novelty
+        skill_name = skill_map.get(str(s), f"Skill {s}")
+        mastered_prereq_names = get_mastered_prereq_names(
+            skill_id=s, mastery=mastery, kg_adj=kg_adj, skill_map=skill_map, threshold=0.5
+        )
+        mastered_prereq_text = "、".join(mastered_prereq_names) if mastered_prereq_names else "无"
 
         candidates.append(
             {
                 "skill_id": s,
-                "skill_name": skill_map.get(str(s), f"Skill {s}"),
+                "skill_name": skill_name,
                 "mastery_prob": round(prob, 4),
                 "readiness": round(readiness, 4),
                 "score": round(float(score), 4),
-                "reason": generate_reason(s, prob, readiness, prereq_mean, kg_adj),
+                "mastered_prereqs": mastered_prereq_names,
+                "mastered_prereqs_text": mastered_prereq_text,
+                "reason": generate_reason(
+                    skill_name=skill_name,
+                    mastered_prereq_names=mastered_prereq_names,
+                    skill_id=s,
+                    prob=prob,
+                    readiness=readiness,
+                    prereq_mean=prereq_mean,
+                    kg_adj=kg_adj,
+                ),
             }
         )
 
@@ -357,13 +400,13 @@ def simulate_students() -> Dict[str, Dict]:
 
 def print_table(results: Dict[str, Dict]):
     # Fixed widths + line wrapping keep output aligned while preserving full text.
-    w_name, w_info, w_skill, w_prob, w_score, w_reason = 18, 18, 30, 10, 8, 38
+    w_name, w_info, w_skill, w_prereq, w_prob, w_score, w_reason = 18, 18, 24, 24, 10, 8, 34
 
-    line_width = w_name + w_info + w_skill + w_prob + w_score + w_reason + 3 * 6 + 2
+    line_width = w_name + w_info + w_skill + w_prereq + w_prob + w_score + w_reason + 4 * 6 + 2
     print("\n" + "=" * line_width)
     header = (
         f" {format_cell('学生画像', w_name)} | {format_cell('当前水平(近5次)', w_info)} | "
-        f"{format_cell('推荐知识点', w_skill)} | {format_cell('掌握概率', w_prob)} | "
+        f"{format_cell('推荐知识点', w_skill)} | {format_cell('已掌握前置', w_prereq)} | {format_cell('掌握概率', w_prob)} | "
         f"{format_cell('推荐分数', w_score)} | {format_cell('推荐理由', w_reason)}"
     )
     print(header)
@@ -375,7 +418,7 @@ def print_table(results: Dict[str, Dict]):
         if not recs:
             row = (
                 f" {format_cell(student_name, w_name)} | {format_cell(info_str, w_info)} | "
-                f"{format_cell('无可推荐项', w_skill)} | {format_cell('-', w_prob)} | "
+                f"{format_cell('无可推荐项', w_skill)} | {format_cell('-', w_prereq)} | {format_cell('-', w_prob)} | "
                 f"{format_cell('-', w_score)} | {format_cell('建议回顾历史薄弱点后重试', w_reason)}"
             )
             print(row)
@@ -390,20 +433,22 @@ def print_table(results: Dict[str, Dict]):
 
             # Wrap potentially long fields so we keep full content.
             skill_lines = wrap_text_by_width(rec["skill_name"], w_skill)
+            prereq_lines = wrap_text_by_width(rec.get("mastered_prereqs_text", "无"), w_prereq)
             reason_lines = wrap_text_by_width(rec["reason"], w_reason)
-            sub_rows = max(len(skill_lines), len(reason_lines))
+            sub_rows = max(len(skill_lines), len(prereq_lines), len(reason_lines))
 
             for r in range(sub_rows):
                 name_cell = n_display if r == 0 else ""
                 info_cell = i_display if r == 0 else ""
                 skill_cell = skill_lines[r] if r < len(skill_lines) else ""
+                prereq_cell = prereq_lines[r] if r < len(prereq_lines) else ""
                 prob_cell = mastery_text if r == 0 else ""
                 score_cell = score_text if r == 0 else ""
                 reason_cell = reason_lines[r] if r < len(reason_lines) else ""
 
                 row = (
                     f" {format_cell(name_cell, w_name)} | {format_cell(info_cell, w_info)} | "
-                    f"{format_cell(skill_cell, w_skill)} | {format_cell(prob_cell, w_prob)} | "
+                    f"{format_cell(skill_cell, w_skill)} | {format_cell(prereq_cell, w_prereq)} | {format_cell(prob_cell, w_prob)} | "
                     f"{format_cell(score_cell, w_score)} | {format_cell(reason_cell, w_reason)}"
                 )
                 print(row)

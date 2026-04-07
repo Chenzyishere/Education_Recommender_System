@@ -3,22 +3,34 @@ import torch.nn as nn
 
 
 class DKTModel(nn.Module):
-    def __init__(self, n_skills, hidden_dim=128, num_layers=1):
-        super(DKTModel, self).__init__()
+    """
+    DKT baseline model.
+
+    输入:
+    - x: 交互序列编码, shape [batch, seq]
+      编码方式通常是 skill_id + correct * n_skills，0 作为 padding。
+
+    输出:
+    - logits: shape [batch, seq, n_skills + 1]
+      每个时间步对所有知识点的掌握预测（未过 sigmoid）。
+    """
+
+    def __init__(self, n_skills: int, hidden_dim: int = 128, num_layers: int = 1):
+        super().__init__()
         self.n_skills = n_skills
-        # 输入编码: 2*n_skills + 1 (做对、做错、Padding)
+        # 交互词表大小: 2 * n_skills + 1，其中 0 留给 padding。
         self.input_dim = 2 * n_skills + 1
 
+        # 1) 交互嵌入层
         self.embedding = nn.Embedding(self.input_dim, hidden_dim, padding_idx=0)
+        # 2) 时序建模层
         self.lstm = nn.LSTM(hidden_dim, hidden_dim, num_layers, batch_first=True)
+        # 3) 输出层（映射到全部知识点）
         self.fc = nn.Linear(hidden_dim, n_skills + 1)
 
-    def forward(self, q, x):
-        # x: [batch, seq]
+    def forward(self, q: torch.Tensor, x: torch.Tensor) -> torch.Tensor:
+        # q 在 DKT 中不直接使用，保留仅用于统一训练接口。
+        del q
         embedded = self.embedding(x)
-        out, _ = self.lstm(embedded)
-
-        # 映射到所有知识点
-        # 输出维度: [batch, seq, n_skills + 1]
-        res = self.fc(out)
-        return res
+        hidden, _ = self.lstm(embedded)
+        return self.fc(hidden)
