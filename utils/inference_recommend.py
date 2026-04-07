@@ -34,7 +34,6 @@ DATA_DIR = os.path.join(PROJECT_ROOT, "data")
 
 KG_JSON_PATH = os.path.join(DATA_DIR, "kg_adj_list.json")
 SKILL_MAP_JSON_PATH = os.path.join(DATA_DIR, "skill_map.json")
-SKILL_MAP_CSV_PATH = os.path.join(DATA_DIR, "skill_map.csv")
 MODEL_WEIGHTS = os.path.join(DATA_DIR, "kg_sakt_model.pth")
 OUTPUT_JSON_PATH = os.path.join(DATA_DIR, "recommendation_simulation.json")
 
@@ -113,22 +112,11 @@ def wrap_text_by_width(text: str, width: int) -> List[str]:
 
 
 def load_skill_map() -> Dict[str, str]:
-    """Load skill mapping from JSON first, fallback to CSV."""
+    """Load skill mapping from JSON only."""
     if os.path.exists(SKILL_MAP_JSON_PATH):
         with open(SKILL_MAP_JSON_PATH, "r", encoding="utf-8") as f:
             data = json.load(f)
         return {str(k): str(v) for k, v in data.items()}
-
-    if os.path.exists(SKILL_MAP_CSV_PATH):
-        skill_map = {}
-        with open(SKILL_MAP_CSV_PATH, "r", encoding="utf-8") as f:
-            next(f, None)
-            for line in f:
-                parts = line.strip().split(",")
-                if len(parts) >= 2:
-                    old_id, new_id = parts[0], parts[1]
-                    skill_map[str(new_id)] = f"Skill {new_id} (old:{old_id})"
-        return skill_map
 
     return {}
 

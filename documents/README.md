@@ -35,13 +35,12 @@ Education_Recommender_System/
 1. Data cleaning:
    - Run `preprocess/clean_data.py`
    - Input: `data/skill_builder_data.csv`
-   - Output: `data/assist9_cleaned.csv`, `data/skill_map.csv`
+   - Output: `data/assist9_cleaned.csv`, `data/skill_id_remap.json`
 2. KG construction (triggered by cleaning):
    - Uses domain-core pipeline in `preprocess/kg_builder.py`
    - Triple storage schema: `(KP_source, requires, KP_target)`
    - Outputs:
      - `data/kg_triples.json`
-     - `data/kg_triples.csv`
      - `data/kg_adj_list.json` (derived from triples for training compatibility)
 3. Model training and comparison:
    - Run `utils/train_and_eval.py`
@@ -58,7 +57,6 @@ Education_Recommender_System/
 ## Key Outputs
 - `data/assist9_cleaned.csv`
 - `data/kg_triples.json`
-- `data/kg_triples.csv`
 - `data/kg_adj_list.json`
 - `data/kg_sakt_model.pth`
 - `data/logic_metrics_comparison.csv`
@@ -66,3 +64,4 @@ Education_Recommender_System/
 - `rendered/kg_adjacency_matrix.png`
 - `rendered/four_models_comparison.png`
 - `rendered/student_recommendation_example.png`
+

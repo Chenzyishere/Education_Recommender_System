@@ -1,3 +1,4 @@
+import json
 import os
 import sys
 
@@ -92,9 +93,9 @@ def clean_assist9_data(raw_path: str, save_path: str, map_save_path: str) -> int
     skill_map = {old: i + 1 for i, old in enumerate(unique_skills)}  # 创建映射
     df["skill_id"] = df["skill_id"].map(skill_map)  # 应用映射
 
-    # 保存映射以用于可解释性和推理
-    skill_map_df = pd.DataFrame(list(skill_map.items()), columns=["old_id", "new_id"])
-    skill_map_df.to_csv(map_save_path, index=False)
+    # Save old->new id remap as JSON (CSV removed from the project).
+    with open(map_save_path, "w", encoding="utf-8") as f:
+        json.dump({str(k): int(v) for k, v in skill_map.items()}, f, ensure_ascii=False, indent=2)
     print(f"[Clean] Saved skill map to: {map_save_path}")
 
     # 保存带有顺序信息的清理后数据集
@@ -140,7 +141,7 @@ if __name__ == "__main__":
     # 定义输入输出文件路径
     input_csv = os.path.join(data_dir, "skill_builder_data.csv")  # 原始数据路径
     output_clean = os.path.join(data_dir, "assist9_cleaned.csv")  # 清理后数据保存路径
-    output_map = os.path.join(data_dir, "skill_map.csv")  # 技能映射保存路径
+    output_map = os.path.join(data_dir, "skill_id_remap.json")  # 技能映射保存路径（JSON）
 
     try:
         # 执行数据清理和知识图谱构建
