@@ -4,34 +4,49 @@
     "recent_accuracy": 0.6,
     "recommendations": [
       {
-        "skill_id": 106,
-        "skill_name": "Slope (斜率)",
-        "mastery_prob": 0.5829,
+        "skill_id": 121,
+        "skill_name": "正指数幂化简",
+        "mastery_prob": 0.5992,
         "readiness": 1.0,
-        "score": 0.9687,
-        "mastered_prereqs": [],
-        "mastered_prereqs_text": "无",
-        "reason": "因为掌握了当前阶段可承接的基础知识，所以推荐Slope (斜率)。"
+        "score": 0.9067,
+        "cognitive_load": 0.459,
+        "cognitive_penalty": 0.459,
+        "mastery_gate_threshold": 0.45,
+        "mastered_prereqs": [
+          "代数式化简"
+        ],
+        "mastered_prereqs_text": "代数式化简",
+        "reason": "因为你已掌握代数式化简，所以推荐学习正指数幂化简。"
       },
       {
-        "skill_id": 85,
-        "skill_name": "Rotations (旋转)",
-        "mastery_prob": 0.5632,
+        "skill_id": 86,
+        "skill_name": "旋转",
+        "mastery_prob": 0.603,
         "readiness": 1.0,
-        "score": 0.9325,
-        "mastered_prereqs": [],
-        "mastered_prereqs_text": "无",
-        "reason": "因为掌握了当前阶段可承接的基础知识，所以推荐Rotations (旋转)。"
+        "score": 0.9027,
+        "cognitive_load": 0.459,
+        "cognitive_penalty": 0.459,
+        "mastery_gate_threshold": 0.45,
+        "mastered_prereqs": [
+          "勾股定理/皮氏定理"
+        ],
+        "mastered_prereqs_text": "勾股定理/皮氏定理",
+        "reason": "因为你已掌握勾股定理/皮氏定理，所以推荐学习旋转。"
       },
       {
-        "skill_id": 75,
-        "skill_name": "Percent Discount (折扣计算)",
-        "mastery_prob": 0.5629,
+        "skill_id": 7,
+        "skill_name": "统计表",
+        "mastery_prob": 0.6128,
         "readiness": 1.0,
-        "score": 0.932,
-        "mastered_prereqs": [],
-        "mastered_prereqs_text": "无",
-        "reason": "因为掌握了当前阶段可承接的基础知识，所以推荐Percent Discount (折扣计算)。"
+        "score": 0.8848,
+        "cognitive_load": 0.459,
+        "cognitive_penalty": 0.459,
+        "mastery_gate_threshold": 0.45,
+        "mastered_prereqs": [
+          "平均数"
+        ],
+        "mastered_prereqs_text": "平均数",
+        "reason": "因为你已掌握平均数，所以推荐学习统计表。"
       }
     ]
   },
@@ -41,39 +56,48 @@
     "recommendations": [
       {
         "skill_id": 119,
-        "skill_name": "Skill 119 (技能119-待定)",
-        "mastery_prob": 0.5965,
+        "skill_name": "棱柱与棱锥的表面积",
+        "mastery_prob": 0.5988,
         "readiness": 1.0,
-        "score": 0.9936,
-        "mastered_prereqs": [],
-        "mastered_prereqs_text": "无",
-        "reason": "因为掌握了当前阶段可承接的基础知识，所以推荐Skill 119 (技能119-待定)。"
-      },
-      {
-        "skill_id": 79,
-        "skill_name": "Multiplication and Division Positive Decimals (正小数乘除法)",
-        "mastery_prob": 0.5952,
-        "readiness": 1.0,
-        "score": 0.9912,
+        "score": 0.9535,
+        "cognitive_load": 0.2221,
+        "cognitive_penalty": 0.2221,
+        "mastery_gate_threshold": 0.45,
         "mastered_prereqs": [
-          "Addition and Subtraction Positive Decimals (正小数加减法)",
-          "Histograms (直方图)",
-          "Stem and Leaf Plot (茎叶图)",
-          "Scatter Plot (散点图)",
-          "Subtraction Whole Numbers (整数减法)"
+          "几何体展开图"
         ],
-        "mastered_prereqs_text": "Addition and Subtraction Positive Decimals (正小数加减法)、Histograms (直方图)、Stem and Leaf Plot (茎叶图)、Scatter Plot (散点图)、Subtraction Whole Numbers (整数减法)",
-        "reason": "因为掌握了Addition and Subtraction Positive Decimals (正小数加减法)、Histograms (直方图)、Stem and Leaf Plot (茎叶图)等，所以推荐Multiplication and Division Positive Decimals (正小数乘除法)。"
+        "mastered_prereqs_text": "几何体展开图",
+        "reason": "因为你已掌握几何体展开图，所以推荐学习棱柱与棱锥的表面积。"
       },
       {
-        "skill_id": 29,
-        "skill_name": "Reading a Ruler or Scale (刻度尺读数)",
-        "mastery_prob": 0.6148,
+        "skill_id": 40,
+        "skill_name": "估算",
+        "mastery_prob": 0.5929,
         "readiness": 1.0,
-        "score": 0.9728,
-        "mastered_prereqs": [],
-        "mastered_prereqs_text": "无",
-        "reason": "因为掌握了当前阶段可承接的基础知识，所以推荐Reading a Ruler or Scale (刻度尺读数)。"
+        "score": 0.9426,
+        "cognitive_load": 0.2221,
+        "cognitive_penalty": 0.2221,
+        "mastery_gate_threshold": 0.45,
+        "mastered_prereqs": [
+          "整数加法"
+        ],
+        "mastered_prereqs_text": "整数加法",
+        "reason": "因为你已掌握整数加法，所以推荐学习估算。"
+      },
+      {
+        "skill_id": 91,
+        "skill_name": "对称性",
+        "mastery_prob": 0.5929,
+        "readiness": 1.0,
+        "score": 0.9425,
+        "cognitive_load": 0.2221,
+        "cognitive_penalty": 0.2221,
+        "mastery_gate_threshold": 0.45,
+        "mastered_prereqs": [
+          "勾股定理/皮氏定理"
+        ],
+        "mastered_prereqs_text": "勾股定理/皮氏定理",
+        "reason": "因为你已掌握勾股定理/皮氏定理，所以推荐学习对称性。"
       }
     ]
   },
@@ -82,36 +106,300 @@
     "recent_accuracy": 0.8,
     "recommendations": [
       {
-        "skill_id": 73,
-        "skill_name": "Intercept (截距)",
-        "mastery_prob": 0.6135,
+        "skill_id": 57,
+        "skill_name": "指数/幂",
+        "mastery_prob": 0.621,
         "readiness": 1.0,
-        "score": 0.9753,
+        "score": 0.9176,
+        "cognitive_load": 0.22,
+        "cognitive_penalty": 0.22,
+        "mastery_gate_threshold": 0.45,
         "mastered_prereqs": [
-          "Absolute Value (绝对值)"
+          "代数式化简"
         ],
-        "mastered_prereqs_text": "Absolute Value (绝对值)",
-        "reason": "因为掌握了Absolute Value (绝对值)，所以推荐Intercept (截距)。"
+        "mastered_prereqs_text": "代数式化简",
+        "reason": "因为你已掌握代数式化简，所以推荐学习指数/幂。"
+      },
+      {
+        "skill_id": 3,
+        "skill_name": "直方图表与统计图",
+        "mastery_prob": 0.5772,
+        "readiness": 1.0,
+        "score": 0.9142,
+        "cognitive_load": 0.22,
+        "cognitive_penalty": 0.22,
+        "mastery_gate_threshold": 0.45,
+        "mastered_prereqs": [],
+        "mastered_prereqs_text": "无",
+        "reason": "因为你已掌握当前阶段基础知识，所以推荐学习直方图表与统计图。"
+      },
+      {
+        "skill_id": 90,
+        "skill_name": "梯形面积",
+        "mastery_prob": 0.577,
+        "readiness": 1.0,
+        "score": 0.9138,
+        "cognitive_load": 0.22,
+        "cognitive_penalty": 0.22,
+        "mastery_gate_threshold": 0.45,
+        "mastered_prereqs": [
+          "圆柱表面积"
+        ],
+        "mastered_prereqs_text": "圆柱表面积",
+        "reason": "因为你已掌握圆柱表面积，所以推荐学习梯形面积。"
+      }
+    ]
+  },
+  "学生D（高正确率慢节奏）": {
+    "level": "高级",
+    "recent_accuracy": 0.8,
+    "recommendations": [
+      {
+        "skill_id": 109,
+        "skill_name": "根据方程求斜率",
+        "mastery_prob": 0.5919,
+        "readiness": 1.0,
+        "score": 0.9012,
+        "cognitive_load": 0.42,
+        "cognitive_penalty": 0.42,
+        "mastery_gate_threshold": 0.45,
+        "mastered_prereqs": [
+          "利用图像解线性方程组"
+        ],
+        "mastered_prereqs_text": "利用图像解线性方程组",
+        "reason": "因为你已掌握利用图像解线性方程组，所以推荐学习根据方程求斜率。"
+      },
+      {
+        "skill_id": 107,
+        "skill_name": "根据图像写线性方程",
+        "mastery_prob": 0.588,
+        "readiness": 1.0,
+        "score": 0.8939,
+        "cognitive_load": 0.42,
+        "cognitive_penalty": 0.42,
+        "mastery_gate_threshold": 0.45,
+        "mastered_prereqs": [
+          "利用图像解线性方程组"
+        ],
+        "mastered_prereqs_text": "利用图像解线性方程组",
+        "reason": "因为你已掌握利用图像解线性方程组，所以推荐学习根据图像写线性方程。"
+      },
+      {
+        "skill_id": 106,
+        "skill_name": "斜率",
+        "mastery_prob": 0.5825,
+        "readiness": 1.0,
+        "score": 0.884,
+        "cognitive_load": 0.42,
+        "cognitive_penalty": 0.42,
+        "mastery_gate_threshold": 0.45,
+        "mastered_prereqs": [
+          "利用图像解线性方程组"
+        ],
+        "mastered_prereqs_text": "利用图像解线性方程组",
+        "reason": "因为你已掌握利用图像解线性方程组，所以推荐学习斜率。"
+      }
+    ]
+  },
+  "学生E（速度快但不稳定）": {
+    "level": "中级",
+    "recent_accuracy": 0.4,
+    "recommendations": [
+      {
+        "skill_id": 70,
+        "skill_name": "代数式化简",
+        "mastery_prob": 0.6234,
+        "readiness": 1.0,
+        "score": 0.8677,
+        "cognitive_load": 0.447,
+        "cognitive_penalty": 0.447,
+        "mastery_gate_threshold": 0.45,
+        "mastered_prereqs": [],
+        "mastered_prereqs_text": "无",
+        "reason": "因为你已掌握当前阶段基础知识，所以推荐学习代数式化简。"
+      },
+      {
+        "skill_id": 100,
+        "skill_name": "圆柱体积",
+        "mastery_prob": 0.6234,
+        "readiness": 1.0,
+        "score": 0.8677,
+        "cognitive_load": 0.447,
+        "cognitive_penalty": 0.447,
+        "mastery_gate_threshold": 0.45,
+        "mastered_prereqs": [
+          "长方体体积"
+        ],
+        "mastered_prereqs_text": "长方体体积",
+        "reason": "因为你已掌握长方体体积，所以推荐学习圆柱体积。"
+      },
+      {
+        "skill_id": 94,
+        "skill_name": "圆柱体积",
+        "mastery_prob": 0.5703,
+        "readiness": 1.0,
+        "score": 0.8562,
+        "cognitive_load": 0.447,
+        "cognitive_penalty": 0.447,
+        "mastery_gate_threshold": 0.45,
+        "mastered_prereqs": [
+          "长方体体积"
+        ],
+        "mastered_prereqs_text": "长方体体积",
+        "reason": "因为你已掌握长方体体积，所以推荐学习圆柱体积。"
+      }
+    ]
+  },
+  "学生F（几何偏科）": {
+    "level": "中级",
+    "recent_accuracy": 0.4,
+    "recommendations": [
+      {
+        "skill_id": 23,
+        "skill_name": "同系单位换算",
+        "mastery_prob": 0.5855,
+        "readiness": 1.0,
+        "score": 0.8703,
+        "cognitive_load": 0.5158,
+        "cognitive_penalty": 0.5158,
+        "mastery_gate_threshold": 0.45,
+        "mastered_prereqs": [
+          "几何体展开图"
+        ],
+        "mastered_prereqs_text": "几何体展开图",
+        "reason": "因为你已掌握几何体展开图，所以推荐学习同系单位换算。"
+      },
+      {
+        "skill_id": 68,
+        "skill_name": "理解概率概念",
+        "mastery_prob": 0.5851,
+        "readiness": 1.0,
+        "score": 0.8694,
+        "cognitive_load": 0.5158,
+        "cognitive_penalty": 0.5158,
+        "mastery_gate_threshold": 0.45,
+        "mastered_prereqs": [
+          "几何体展开图"
+        ],
+        "mastered_prereqs_text": "几何体展开图",
+        "reason": "因为你已掌握几何体展开图，所以推荐学习理解概率概念。"
+      },
+      {
+        "skill_id": 80,
+        "skill_name": "散点图",
+        "mastery_prob": 0.5725,
+        "readiness": 1.0,
+        "score": 0.8465,
+        "cognitive_load": 0.5158,
+        "cognitive_penalty": 0.5158,
+        "mastery_gate_threshold": 0.45,
+        "mastered_prereqs": [
+          "概率基础"
+        ],
+        "mastered_prereqs_text": "概率基础",
+        "reason": "因为你已掌握概率基础，所以推荐学习散点图。"
+      }
+    ]
+  },
+  "学生G（代数偏科）": {
+    "level": "初级",
+    "recent_accuracy": 0.2,
+    "recommendations": [
+      {
+        "skill_id": 28,
+        "skill_name": "勾股定理",
+        "mastery_prob": 0.6058,
+        "readiness": 1.0,
+        "score": 0.8715,
+        "cognitive_load": 0.5893,
+        "cognitive_penalty": 0.5893,
+        "mastery_gate_threshold": 0.45,
+        "mastered_prereqs": [
+          "勾股定理/皮氏定理"
+        ],
+        "mastered_prereqs_text": "勾股定理/皮氏定理",
+        "reason": "因为你已掌握勾股定理/皮氏定理，所以推荐学习勾股定理。"
+      },
+      {
+        "skill_id": 97,
+        "skill_name": "正实数四则运算法则",
+        "mastery_prob": 0.5935,
+        "readiness": 1.0,
+        "score": 0.8703,
+        "cognitive_load": 0.5893,
+        "cognitive_penalty": 0.5893,
+        "mastery_gate_threshold": 0.45,
+        "mastered_prereqs": [
+          "运算法则"
+        ],
+        "mastered_prereqs_text": "运算法则",
+        "reason": "因为你已掌握运算法则，所以推荐学习正实数四则运算法则。"
+      },
+      {
+        "skill_id": 89,
+        "skill_name": "平移",
+        "mastery_prob": 0.5894,
+        "readiness": 1.0,
+        "score": 0.8627,
+        "cognitive_load": 0.5893,
+        "cognitive_penalty": 0.5893,
+        "mastery_gate_threshold": 0.45,
+        "mastered_prereqs": [
+          "勾股定理/皮氏定理"
+        ],
+        "mastered_prereqs_text": "勾股定理/皮氏定理",
+        "reason": "因为你已掌握勾股定理/皮氏定理，所以推荐学习平移。"
+      }
+    ]
+  },
+  "学生H（恢复上升型）": {
+    "level": "高级",
+    "recent_accuracy": 0.8,
+    "recommendations": [
+      {
+        "skill_id": 35,
+        "skill_name": "长方体体积",
+        "mastery_prob": 0.6011,
+        "readiness": 1.0,
+        "score": 0.938,
+        "cognitive_load": 0.3,
+        "cognitive_penalty": 0.3,
+        "mastery_gate_threshold": 0.45,
+        "mastered_prereqs": [
+          "圆柱表面积"
+        ],
+        "mastered_prereqs_text": "圆柱表面积",
+        "reason": "因为你已掌握圆柱表面积，所以推荐学习长方体体积。"
       },
       {
         "skill_id": 29,
-        "skill_name": "Reading a Ruler or Scale (刻度尺读数)",
-        "mastery_prob": 0.6214,
+        "skill_name": "刻度尺读数",
+        "mastery_prob": 0.5934,
         "readiness": 1.0,
-        "score": 0.9608,
-        "mastered_prereqs": [],
-        "mastered_prereqs_text": "无",
-        "reason": "因为掌握了当前阶段可承接的基础知识，所以推荐Reading a Ruler or Scale (刻度尺读数)。"
+        "score": 0.928,
+        "cognitive_load": 0.3,
+        "cognitive_penalty": 0.3,
+        "mastery_gate_threshold": 0.45,
+        "mastered_prereqs": [
+          "几何体展开图"
+        ],
+        "mastered_prereqs_text": "几何体展开图",
+        "reason": "因为你已掌握几何体展开图，所以推荐学习刻度尺读数。"
       },
       {
-        "skill_id": 72,
-        "skill_name": "Absolute Value (绝对值)",
-        "mastery_prob": 0.5726,
+        "skill_id": 114,
+        "skill_name": "识别二次项规律",
+        "mastery_prob": 0.5935,
         "readiness": 1.0,
-        "score": 0.9497,
-        "mastered_prereqs": [],
-        "mastered_prereqs_text": "无",
-        "reason": "因为掌握了当前阶段可承接的基础知识，所以推荐Absolute Value (绝对值)。"
+        "score": 0.928,
+        "cognitive_load": 0.3,
+        "cognitive_penalty": 0.3,
+        "mastery_gate_threshold": 0.45,
+        "mastered_prereqs": [
+          "二次方程求根公式"
+        ],
+        "mastered_prereqs_text": "二次方程求根公式",
+        "reason": "因为你已掌握二次方程求根公式，所以推荐学习识别二次项规律。"
       }
     ]
   }
